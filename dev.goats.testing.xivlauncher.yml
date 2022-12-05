@@ -1,4 +1,4 @@
-app-id: dev.goats.beta.xivlauncher
+app-id: dev.goats.testing.xivlauncher
 runtime: org.freedesktop.Platform
 runtime-version: '22.08'
 sdk: org.freedesktop.Sdk
@@ -53,16 +53,16 @@ modules:
     buildsystem: simple
     build-commands:
       - install -d "${FLATPAK_DEST}/opt/XIVLauncher/"
-      - dotnet publish -r linux-x64 --sc --source ./nuget-sources -o "${FLATPAK_DEST}/opt/XIVLauncher/" src/XIVLauncher.Core/XIVLauncher.Core.csproj --configuration Release -p:ExtraDefineConstants=FLATPAK
-      - install -D -m644 misc/linux_distrib/XIVLauncher.desktop "${FLATPAK_DEST}/share/applications/dev.goats.beta.xivlauncher.desktop"
+      - dotnet publish -r linux-x64 --sc --source ./nuget-sources -o "${FLATPAK_DEST}/opt/XIVLauncher/" src/XIVLauncher.Core/XIVLauncher.Core.csproj --configuration Release -p:DefineConstants=FLATPAK -p:DefineConstants=TESTING
+      - install -D -m644 misc/linux_distrib/XIVLauncher.desktop "${FLATPAK_DEST}/share/applications/dev.goats.testing.xivlauncher.desktop"
       - install -D -m644 misc/linux_distrib/512.png "${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/xivlauncher.png"
-      - install -D -m644 dev.goats.beta.xivlauncher.appdata.xml "${FLATPAK_DEST}/share/metainfo/dev.goats.beta.xivlauncher.appdata.xml"
+      - install -D -m644 dev.goats.testing.xivlauncher.appdata.xml "${FLATPAK_DEST}/share/metainfo/dev.goats.testing.xivlauncher.appdata.xml"
       - ln -s "${FLATPAK_DEST}/opt/XIVLauncher/XIVLauncher.Core" "${FLATPAK_DEST}/bin/xivlauncher"
     sources:
       - type: git
         url: https://github.com/rankynbass/XIVLauncher.Core.git
-        commit: 98babfd2e48a33aaf74653dc4da375e21cbce378
-        tag: "1.0.3-testing"
+        commit: 788165a05cffcb0537ecebecae5d02f26bffd39c
+        branch: "flatpak-test"
       - type: file
         url: https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-x64/6.0.1/microsoft.aspnetcore.app.runtime.linux-x64.6.0.1.nupkg
         dest: nuget-sources
@@ -73,5 +73,5 @@ modules:
         dest: nuget-sources
         sha512: 01d0e6c885a357270dabb65878deed2c147841297d8688a543b7605f4704d2507c70f86f825a59a975ff7789a4b74677262947fc97a7a25f23556292266b50ef
       - type: file
-        path: dev.goats.beta.xivlauncher.appdata.xml
+        path: dev.goats.testing.xivlauncher.appdata.xml
       - nuget-dependencies.json

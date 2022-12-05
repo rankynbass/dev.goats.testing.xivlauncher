@@ -25,7 +25,7 @@
     </screenshot>
   </screenshots>
   <releases>
-    <release date="2022-12-04" version="1.0.3-beta"/>
+    <release date="2022-12-04" version="1.0.3-testing"/>
   </releases>
   <update_contact>goatsdev@protonmail.com</update_contact>
   <launchable type="desktop-id">dev.goats.beta.xivlauncher.desktop</launchable>

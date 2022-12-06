@@ -53,7 +53,7 @@ modules:
     buildsystem: simple
     build-commands:
       - install -d "${FLATPAK_DEST}/opt/XIVLauncher/"
-      - dotnet publish -r linux-x64 --sc --source ./nuget-sources -o "${FLATPAK_DEST}/opt/XIVLauncher/" src/XIVLauncher.Core/XIVLauncher.Core.csproj --configuration Release -p:DefineConstants=FLATPAK -p:DefineConstants=TESTING
+      - dotnet publish -r linux-x64 --sc --source ./nuget-sources -o "${FLATPAK_DEST}/opt/XIVLauncher/" src/XIVLauncher.Core/XIVLauncher.Core.csproj --configuration Release -p:ExtraDefineConstants="FLATPAK TESTING"
       - install -D -m644 misc/linux_distrib/XIVLauncher.desktop "${FLATPAK_DEST}/share/applications/dev.goats.testing.xivlauncher.desktop"
       - install -D -m644 misc/linux_distrib/512.png "${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/xivlauncher.png"
       - install -D -m644 dev.goats.testing.xivlauncher.appdata.xml "${FLATPAK_DEST}/share/metainfo/dev.goats.testing.xivlauncher.appdata.xml"
@@ -61,7 +61,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/rankynbass/XIVLauncher.Core.git
-        commit: 3875fe9a0aa71089db3309ca1887ef7f3538cba5
+        commit: 622a2c278f4ab41011be4e561c004b1af9777b17
         branch: "flatpak-test"
       - type: file
         url: https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-x64/6.0.1/microsoft.aspnetcore.app.runtime.linux-x64.6.0.1.nupkg

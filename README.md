@@ -11,8 +11,6 @@ git clone https://github.com/rankynbass/dev.goats.testing.xivlauncher.git
 mkdir -p flatpaks/xivlauncher
 cd dev.goats.testing.xivlauncher
 ```
-If you want to test the dxvk backend patches without the UI updates (basically, just test that the XIVLauncher.Common.Unix changes don't break anything), you can change to the appropriat branch with  `git checkout 1.0.2+new-dxvk-settings`.
-
 Then finish the build with
 
 ```
@@ -25,4 +23,4 @@ Assuming there were no errors, you can install it with
 flatpak-builder --user --install --force-clean ../flatpaks/xivlauncher dev.goats.testing.xivlauncher.yml
 ```
 
-You can run it with `flatpak run dev.goats.testing.xivlauncher`, and it will also have a .desktop file that is exported as "XIVLauncher Testing". (The `1.02+new-dxvk-settings` branch will actually just make an "XIVLauncher" .desktop entry. I haven't changed the .desktop file in that branch). 
+After that, you can run it just like the normal flatpak: `flatpak run dev.goats.testing.xivlauncher`. There will also be a .desktop file, but if you have XIVLauncher already installed, it might have the exact same name. For steam, you can set the launch options to `XL_SECRET_PROVIDER=FILE %command% run --parent-expose-pids --parent-share-pids --parent-pid=1 --branch=stable --arch=x86_64 --command=xivlauncher dev.goats.testing.xivlauncher`

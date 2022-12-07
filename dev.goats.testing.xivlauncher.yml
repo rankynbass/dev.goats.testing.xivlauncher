@@ -60,9 +60,9 @@ modules:
       - ln -s "${FLATPAK_DEST}/opt/XIVLauncher/XIVLauncher.Core" "${FLATPAK_DEST}/bin/xivlauncher"
     sources:
       - type: git
-        url: https://github.com/rankynbass/XIVLauncher.Core.git
-        commit: 622a2c278f4ab41011be4e561c004b1af9777b17
-        branch: "flatpak-test"
+        path: /home/rankyn/projects/XIVLauncher.Core
+        commit: bfd4eca2c974bb259ecc386ed938e109112996c6
+        branch: "xlcore-tweaks"
       - type: file
         url: https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-x64/6.0.1/microsoft.aspnetcore.app.runtime.linux-x64.6.0.1.nupkg
         dest: nuget-sources

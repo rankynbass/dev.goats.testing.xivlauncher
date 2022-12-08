@@ -35,4 +35,4 @@ Assuming there were no errors, you can install it with
 flatpak-builder --user --install --force-clean ../flatpaks/xivlauncher dev.goats.testing.xivlauncher.yml
 ```
 
-After that, you can run it just like the normal flatpak: `flatpak run dev.goats.testing.xivlauncher`. There will also be a .desktop file, but if you have XIVLauncher already installed, it might have the exact same name. For steam, you can set the launch options to `XL_SECRET_PROVIDER=FILE %command% run --parent-expose-pids --parent-share-pids --parent-pid=1 --branch=stable --arch=x86_64 --command=xivlauncher dev.goats.testing.xivlauncher`
+After that, you can run it just like the normal flatpak: `flatpak run dev.goats.testing.xivlauncher`. There will also be a .desktop file, but if you have XIVLauncher already installed, it might have the exact same name (I've changed to XIVLauncher Testing for the master branch, but some of the others might not have that). For steam, you can set the launch options to `XL_SECRET_PROVIDER=FILE %command% run --parent-expose-pids --parent-share-pids --parent-pid=1 --branch=stable --arch=x86_64 --command=xivlauncher dev.goats.testing.xivlauncher`

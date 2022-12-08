@@ -61,7 +61,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/rankynbass/XIVLauncher.Core.git
-        commit: 1c017521ef3b92846accf8e710276284e06b7272
+        commit: 6242a0ac6e4f30e79f1a97015d7da0d95f6209b5
         branch: "flatpak-test"
       - type: file
         url: https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-x64/6.0.1/microsoft.aspnetcore.app.runtime.linux-x64.6.0.1.nupkg

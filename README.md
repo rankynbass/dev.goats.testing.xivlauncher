@@ -10,7 +10,7 @@ flatpak install flathub org.flatpak.Builder//22.08
 Then install the build dependencies (must be done in flatpak):
 
 ```
-flatpak install flathub org.freedesktop.Sdk//22.08 org.freedesktop.Sdk.Extension.dotnet6//22.08
+flatpak install flathub org.freedesktop.Platform//22.08 org.freedesktop.Sdk//22.08 org.freedesktop.Sdk.Extension.dotnet6//22.08
 ```
 
 Once that's done, clone this git repo. 

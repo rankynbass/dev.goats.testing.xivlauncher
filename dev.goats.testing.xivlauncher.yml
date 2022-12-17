@@ -61,7 +61,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/rankynbass/XIVLauncher.Core.git
-        commit: e68849c8e9757b147454721750f89f8b9b5f1211
+        commit: f180ea5c10f92083c81d90a87ef38d8bad44d4ab
         branch: "flatpak-test-with-more-fixes"
       - type: file
         url: https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-x64/6.0.1/microsoft.aspnetcore.app.runtime.linux-x64.6.0.1.nupkg
@@ -75,3 +75,17 @@ modules:
       - type: file
         path: dev.goats.testing.xivlauncher.appdata.xml
       - nuget-dependencies.json
+  - name: gamemode
+  # this is a direct copy-paste of the HGL implementation of gamemode. Seems to work, so why not include it?
+    buildsystem: meson
+    config-opts: &gamemode_opts
+      - -Dwith-examples=false
+      - -Dwith-util=false
+      - -Dwith-sd-bus-provider=no-daemon
+    sources: &gamemode_sources
+      - type: git
+        url: https://github.com/FeralInteractive/gamemode.git
+        tag: '1.7'
+        commit: 4dc99dff76218718763a6b07fc1900fa6d1dafd9
+        x-checker-data:
+            type: git

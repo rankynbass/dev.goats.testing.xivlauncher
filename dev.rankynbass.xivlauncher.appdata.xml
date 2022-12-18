@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>dev.goats.xivlauncher.rbpatched</id>
+  <id>dev.rankynbass.xivlauncher</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0</project_license>
-  <name>XIVLauncher Testing</name>
+  <name>XIVLauncher RB-Patched</name>
   <summary>Launcher &amp; seamless Linux integration for Final Fantasy XIV Online</summary>
   <description>
     <p>
@@ -16,8 +16,8 @@
       FINAL FANTASY is a registered trademark of Square Enix Holdings Co., Ltd. FINAL FANTASY XIV © 2010-2022 SQUARE ENIX CO., LTD. All Rights Reserved. We are not affiliated with SQUARE ENIX CO., LTD. in any way.
     </p>
   </description>
-  <url type="homepage">https://goatcorp.github.io/</url>
-  <url type="bugtracker">https://github.com/goatcorp/FFXIVQuickLauncher/issues</url>
+  <url type="homepage">https://github.com/rankynbass/XIVLauncher.Core/tree/RB-patched</url>
+  <url type="bugtracker">https://github.com/rankynbass/XIVLauncher.Core/issues</url>
   <url type="help">https://goatcorp.github.io/faq</url>
   <screenshots>
     <screenshot type="default">
@@ -25,10 +25,10 @@
     </screenshot>
   </screenshots>
   <releases>
-    <release date="2022-12-04" version="1.0.3-testing"/>
+    <release date="2022-12-17" version="1.0.2-7 RB-Patched"/>
   </releases>
-  <update_contact>goatsdev@protonmail.com</update_contact>
-  <launchable type="desktop-id">dev.goats.xivlauncher.rbpatched.desktop</launchable>
+  <update_contact>rankyn@proton.me</update_contact>
+  <launchable type="desktop-id">dev.rankynbass.xivlauncher.desktop</launchable>
   <project_group>goatcorp</project_group>
   <developer_name>XIVLauncher Contributors</developer_name>
   <content_rating type="oars-1.1" />

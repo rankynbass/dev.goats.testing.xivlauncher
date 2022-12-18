@@ -1,4 +1,4 @@
-app-id: dev.goats.xivlauncher.rbpatched
+app-id: dev.rankynbass.xivlauncher
 runtime: org.freedesktop.Platform
 runtime-version: '22.08'
 sdk: org.freedesktop.Sdk
@@ -60,16 +60,16 @@ modules:
     buildsystem: simple
     build-commands:
       - install -d "${FLATPAK_DEST}/opt/XIVLauncher/"
-      - dotnet publish -r linux-x64 --sc --source ./nuget-sources -o "${FLATPAK_DEST}/opt/XIVLauncher/" src/XIVLauncher.Core/XIVLauncher.Core.csproj --configuration Release -p:ExtraDefineConstants="FLATPAK TESTING"
-      - install -D -m644 misc/linux_distrib/XIVLauncher.desktop "${FLATPAK_DEST}/share/applications/dev.goats.xivlauncher.rbpatched.desktop"
+      - dotnet publish -r linux-x64 --sc --source ./nuget-sources -o "${FLATPAK_DEST}/opt/XIVLauncher/" src/XIVLauncher.Core/XIVLauncher.Core.csproj --configuration Release -p:ExtraDefineConstants="FLATPAK UNOFFICIAL" -p:BuildHash="r7-f46279c"
+      - install -D -m644 misc/linux_distrib/XIVLauncher.desktop "${FLATPAK_DEST}/share/applications/dev.rankynbass.xivlauncher.desktop"
       - install -D -m644 misc/linux_distrib/512.png "${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/xivlauncher.png"
-      - install -D -m644 dev.goats.xivlauncher.rbpatched.appdata.xml "${FLATPAK_DEST}/share/metainfo/dev.goats.xivlauncher.rbpatched.appdata.xml"
+      - install -D -m644 dev.rankynbass.xivlauncher.appdata.xml "${FLATPAK_DEST}/share/metainfo/dev.rankynbass.xivlauncher.appdata.xml"
       - ln -s "${FLATPAK_DEST}/opt/XIVLauncher/XIVLauncher.Core" "${FLATPAK_DEST}/bin/xivlauncher"
     sources:
       - type: git
         url: https://github.com/rankynbass/XIVLauncher.Core.git
-        commit: f180ea5c10f92083c81d90a87ef38d8bad44d4ab
-        branch: "flatpak-test-with-more-fixes"
+        commit: f46279c0f4e857d4922d895267fe36deacb3afc1
+        branch: "RB-patched"
 
       - type: file
         url: https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-x64/6.0.12/microsoft.aspnetcore.app.runtime.linux-x64.6.0.12.nupkg
@@ -82,7 +82,7 @@ modules:
         sha512: b08e107dd7bd74931caf8e576d8f41c3b5d471f438b54262eaae314828e8978b1e34178321075ca7a511100b964df2b4d2262d58e8b196a519ca0cdd41e19aa6
 
       - type: file
-        path: dev.goats.xivlauncher.rbpatched.appdata.xml
+        path: dev.rankynbass.xivlauncher.appdata.xml
       - nuget-dependencies.json
 
   - name: gamemode

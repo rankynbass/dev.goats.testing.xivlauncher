@@ -1,4 +1,4 @@
-# dev.goats.testing.xivlauncher
+# dev.goats.xivlauncher Test build
 Flatpak build files
 
 It's pretty simple. First install `flatpak-builder`. You can probably install it with your disto's package manager. If you can't do that, or you'd prefer to use flatpak, you can also install it from flathub:

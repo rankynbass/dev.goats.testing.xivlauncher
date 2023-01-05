@@ -82,8 +82,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/rankynbass/XIVLauncher.Core.git
-        commit: f020ab5d9943f846f6e06af811c71136299076fe
-        branch: xlcore-fixes-with-dxvk
+        commit: 021c95eb318951d6275badd30034ab5f2a9fdcec
+        branch: xlcore-fixes-plus-dxvk
 
       - type: file
         path: dev.goats.xivlauncher.appdata.xml

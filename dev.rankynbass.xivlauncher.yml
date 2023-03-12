@@ -76,7 +76,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/rankynbass/XIVLauncher.Core.git
-        commit: 2a2c308f16f99e2de4a450146b486f21df381d2c
+        commit: 33bd56bfc40077dd66f1473b53aec6d784e84996
         branch: "RB-patched"
 
       - type: file

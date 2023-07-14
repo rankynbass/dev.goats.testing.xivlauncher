@@ -25,7 +25,7 @@
     </screenshot>
   </screenshots>
   <releases>
-    <release date="2023-03-11" version="1.0.3-5 RB-Patched"/>
+    <release date="2023-07-13" version="1.0.4-1 RB-Patched"/>
   </releases>
   <update_contact>rankyn@proton.me</update_contact>
   <launchable type="desktop-id">dev.rankynbass.xivlauncher.desktop</launchable>

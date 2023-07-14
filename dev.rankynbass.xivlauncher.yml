@@ -52,7 +52,7 @@ add-extensions:
 
 modules:
 
-  - shared-modules/SDL2/SDL2-2.26.1-with-libdecor.json
+  - shared-modules/SDL2/SDL2-with-libdecor.json
 
   - shared-modules/libsecret/libsecret.json
 
@@ -76,8 +76,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/rankynbass/XIVLauncher.Core.git
-        commit: 33bd56bfc40077dd66f1473b53aec6d784e84996
-        branch: "RB-patched"
+        commit: e467b6ca029595ee92b16ac9603d336597332799
+        branch: "RB-1.0.4"
 
       - type: file
         path: dev.rankynbass.xivlauncher.appdata.xml

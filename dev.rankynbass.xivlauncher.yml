@@ -68,7 +68,7 @@ modules:
     buildsystem: simple
     build-commands:
       - install -d "${FLATPAK_DEST}/opt/XIVLauncher/"
-      - dotnet publish -r linux-x64 --sc --source ./nuget-sources -o "${FLATPAK_DEST}/opt/XIVLauncher/" src/XIVLauncher.Core/XIVLauncher.Core.csproj --configuration Release -p:ExtraDefineConstants="FLATPAK UNOFFICIAL" -p:BuildHash="r5-33bd56b"
+      - dotnet publish -r linux-x64 --sc --source ./nuget-sources -o "${FLATPAK_DEST}/opt/XIVLauncher/" src/XIVLauncher.Core/XIVLauncher.Core.csproj --configuration Release -p:ExtraDefineConstants="FLATPAK UNOFFICIAL" -p:BuildHash="r1-e467b6c"
       - install -D -m644 misc/linux_distrib/XIVLauncher.desktop "${FLATPAK_DEST}/share/applications/dev.rankynbass.xivlauncher.desktop"
       - install -D -m644 misc/linux_distrib/512.png "${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/xivlauncher.png"
       - install -D -m644 dev.rankynbass.xivlauncher.appdata.xml "${FLATPAK_DEST}/share/metainfo/dev.rankynbass.xivlauncher.appdata.xml"

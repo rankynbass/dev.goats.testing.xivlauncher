@@ -68,7 +68,8 @@ modules:
     buildsystem: simple
     build-commands:
       - install -d "${FLATPAK_DEST}/opt/XIVLauncher/"
-      - dotnet publish -r linux-x64 --sc --source ./nuget-sources -o "${FLATPAK_DEST}/opt/XIVLauncher/" src/XIVLauncher.Core/XIVLauncher.Core.csproj --configuration Release -p:ExtraDefineConstants="FLATPAK UNOFFICIAL" -p:BuildHash="r1-e467b6c"
+      - dotnet publish -r linux-x64 --sc --source ./nuget-sources -o "${FLATPAK_DEST}/opt/XIVLauncher/" src/XIVLauncher.Core/XIVLauncher.Core.csproj --configuration Release -p:ExtraDefineConstants="FLATPAK UNOFFICIAL" -p:BuildHash="r4-a84ca35"
+      - sed -i 's/RB-Patched/RB-Patched (flatpak)/' misc/linux_distrib/XIVLauncher.desktop
       - install -D -m644 misc/linux_distrib/XIVLauncher.desktop "${FLATPAK_DEST}/share/applications/dev.rankynbass.xivlauncher.desktop"
       - install -D -m644 misc/linux_distrib/512.png "${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/xivlauncher.png"
       - install -D -m644 dev.rankynbass.xivlauncher.appdata.xml "${FLATPAK_DEST}/share/metainfo/dev.rankynbass.xivlauncher.appdata.xml"
@@ -76,8 +77,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/rankynbass/XIVLauncher.Core.git
-        commit: 3f837daed00ae14811a7adee98b422122d215d08
-        branch: "RB-1.0.4"
+        commit: a84ca35a679d5146c3d064beccad4773ed949ac1
+        # branch: "RB-Patched"
 
       - type: file
         path: dev.rankynbass.xivlauncher.appdata.xml

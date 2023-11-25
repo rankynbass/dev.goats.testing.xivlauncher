@@ -1,0 +1,115 @@
+app-id: dev.goats.testing.xivlauncher
+runtime: org.freedesktop.Platform
+runtime-version: '22.08'
+sdk: org.freedesktop.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.dotnet6
+rename-icon: xivlauncher
+copy-icon: true
+
+build-options:
+  append-path: "/usr/lib/sdk/dotnet6/bin"
+  append-ld-library-path: "/usr/lib/sdk/dotnet6/lib"
+  append-pkg-config-path: ":/usr/lib/sdk/dotnet6/lib/pkgconfig"
+  env:
+    DOTNET_CLI_TELEMETRY_OPTOUT: "true"
+command: xivlauncher
+
+finish-args:
+  - --share=ipc
+  - --socket=x11
+  - --socket=wayland
+  - --share=network
+  - --filesystem=home
+  - --socket=pulseaudio
+  - --talk-name=org.freedesktop.secrets
+  - --system-talk-name=org.freedesktop.UDisks2
+  - --device=all
+  - --allow=devel
+  - --allow=multiarch
+
+add-extensions:
+  org.freedesktop.Platform.Compat.i386:
+    directory: lib/i386-linux-gnu
+    version: '22.08'
+
+  # org.freedesktop.Platform.Compat.i386.Debug:
+  #   directory: lib/debug/lib/i386-linux-gnu
+  #   version: '22.08'
+  #   no-autodownload: true
+
+  org.freedesktop.Platform.GL32:
+    directory: lib/i386-linux-gnu/GL
+    version: '1.4'
+    versions: 22.08;1.4
+    subdirectories: true
+    no-autodownload: true
+    autodelete: false
+    add-ld-path: lib
+    merge-dirs: vulkan/icd.d;glvnd/egl_vendor.d;OpenCL/vendors;lib/dri;lib/d3d;vulkan/explicit_layer.d;vulkan/implicit_layer.d
+    download-if: active-gl-driver
+    enable-if: active-gl-driver
+
+modules:
+
+  - shared-modules/SDL2/SDL2-with-libdecor.json
+
+  - shared-modules/libsecret/libsecret.json
+
+  - name: aria2
+    config-opts:
+      - '--with-ca-bundle=/etc/ssl/certs/ca-certificates.crt'
+    sources:
+      - type: archive
+        url: https://github.com/aria2/aria2/releases/download/release-1.36.0/aria2-1.36.0.tar.xz
+        sha256: 58d1e7608c12404f0229a3d9a4953d0d00c18040504498b483305bcb3de907a5
+
+  - name: xivlauncher
+    buildsystem: simple
+    build-commands:
+      - install -d "${FLATPAK_DEST}/opt/XIVLauncher/"
+      - rm -rf lib/FFXIVQuickLauncher
+      - mv ffql lib/FFXIVQuickLauncher
+      - dotnet publish -r linux-x64 --sc --source ./nuget-sources -o "${FLATPAK_DEST}/opt/XIVLauncher/" src/XIVLauncher.Core/XIVLauncher.Core.csproj --configuration Release -p:BuildHash=$(git rev-parse --short HEAD) -p:ExtraDefineConstants="FLATPAK"
+      - install -D -m644 misc/linux_distrib/XIVLauncher.desktop "${FLATPAK_DEST}/share/applications/dev.goats.testing.xivlauncher.desktop"
+      - install -D -m644 misc/linux_distrib/512.png "${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/xivlauncher.png"
+      - install -D -m644 dev.goats.testing.xivlauncher.appdata.xml "${FLATPAK_DEST}/share/metainfo/dev.goats.testing.xivlauncher.appdata.xml"
+      - ln -s "${FLATPAK_DEST}/opt/XIVLauncher/XIVLauncher.Core" "${FLATPAK_DEST}/bin/xivlauncher"
+    sources:
+      - type: dir
+        path: /home/rankyn/projects/XIVLauncher.Core
+
+      - type: dir
+        path: /home/rankyn/projects/FFXIVQuickLauncher
+        dest: ffql
+
+      - type: file
+        path: dev.goats.testing.xivlauncher.appdata.xml
+
+      - nuget-dependencies.json
+
+  - name: gamemode
+  # this is a direct copy-paste of the HGL implementation of gamemode. Seems to work, so why not include it?
+    buildsystem: meson
+    config-opts: &gamemode_opts
+      - -Dwith-examples=false
+      - -Dwith-util=false
+      - -Dwith-sd-bus-provider=no-daemon
+    sources: &gamemode_sources
+      - type: git
+        url: https://github.com/FeralInteractive/gamemode.git
+        tag: '1.7'
+        commit: 4dc99dff76218718763a6b07fc1900fa6d1dafd9
+        x-checker-data:
+            type: git
+
+  - name: bundle-setup
+    buildsystem: simple
+    build-commands:
+      - mkdir -p /app/lib/i386-linux-gnu
+      # - mkdir -p /app/lib/debug/lib/i386-linux-gnu
+      - mkdir -p /app/lib/i386-linux-gnu/GL
+      - install -Dm644 ld.so.conf /app/etc/ld.so.conf
+    sources:
+      - type: file
+        path: ld.so.conf

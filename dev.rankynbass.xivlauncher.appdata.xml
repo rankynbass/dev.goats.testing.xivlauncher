@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>dev.rankynbass.xivlauncher</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0</project_license>
+  <name>XIVLauncher Testing</name>
+  <summary>Launcher &amp; seamless Linux integration for Final Fantasy XIV Online</summary>
+  <description>
+    <p>
+      XIVLauncher is a custom launcher for FINAL FANTASY XIV that offers painless patching, a customized WINE version for perfect compatibility with FFXIV, a multitude of useful plugins and seamless Steam Deck integration. Install, log in, patch, and get started!
+    </p>
+    <p>
+      Please note that on Steam Deck, you will have to adjust the command in your Non-Steam app shortcut to make the game work correctly in gaming mode. See our Steam Deck FAQ, linked below under help, for more information.
+    </p>
+    <p>
+      FINAL FANTASY is a registered trademark of Square Enix Holdings Co., Ltd. FINAL FANTASY XIV © 2010-2022 SQUARE ENIX CO., LTD. All Rights Reserved. We are not affiliated with SQUARE ENIX CO., LTD. in any way.
+    </p>
+  </description>
+  <url type="homepage">https://goatcorp.github.io/</url>
+  <url type="bugtracker">https://github.com/rankynbass/FFXIVQuickLauncher/issues</url>
+  <url type="help">https://goatcorp.github.io/faq</url>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/goatcorp/FFXIVQuickLauncher/master/misc/xlcore_screenshot_v2.png</image>
+    </screenshot>
+  </screenshots>
+  <releases>
+    <release date="2023-11-24" version="1.0.6.4"/>
+  </releases>
+  <update_contact>rankyn@protonmail.com</update_contact>
+  <launchable type="desktop-id">dev.rankynbass.xivlauncher.desktop</launchable>
+  <project_group>goatcorp</project_group>
+  <developer_name>XIVLauncher Contributors</developer_name>
+  <content_rating type="oars-1.1" />
+</component>

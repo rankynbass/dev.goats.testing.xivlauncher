@@ -52,7 +52,7 @@ add-extensions:
 
 modules:
 
-  - shared-modules/SDL2/SDL2-2.26.1-with-libdecor.json
+  - shared-modules/SDL2/SDL2-with-libdecor.json
 
   - shared-modules/libsecret/libsecret.json
 
@@ -70,7 +70,7 @@ modules:
       - install -d "${FLATPAK_DEST}/opt/XIVLauncher/"
       - rm -rf lib/FFXIVQuickLauncher
       - mv ffql lib/FFXIVQuickLauncher
-      - dotnet publish -r linux-x64 --sc --source ./nuget-sources -o "${FLATPAK_DEST}/opt/XIVLauncher/" src/XIVLauncher.Core/XIVLauncher.Core.csproj --configuration Release -p:BuildHash=7e5e295 -p:ExtraDefineConstants="FLATPAK TESTING"
+      - dotnet publish -r linux-x64 --sc --source ./nuget-sources -o "${FLATPAK_DEST}/opt/XIVLauncher/" src/XIVLauncher.Core/XIVLauncher.Core.csproj --configuration Release -p:BuildHash=$(git rev-parse --short HEAD) -p:ExtraDefineConstants="FLATPAK"
       - install -D -m644 misc/linux_distrib/XIVLauncher.desktop "${FLATPAK_DEST}/share/applications/dev.goats.testing.xivlauncher.desktop"
       - install -D -m644 misc/linux_distrib/512.png "${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/xivlauncher.png"
       - install -D -m644 dev.goats.testing.xivlauncher.appdata.xml "${FLATPAK_DEST}/share/metainfo/dev.goats.testing.xivlauncher.appdata.xml"

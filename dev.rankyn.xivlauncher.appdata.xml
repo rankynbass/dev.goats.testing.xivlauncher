@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>dev.rankynbass.xivlauncher</id>
+  <id>dev.rankyn.xivlauncher</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0</project_license>
   <name>XIVLauncher-RB</name>
@@ -25,10 +25,10 @@
     </screenshot>
   </screenshots>
   <releases>
-    <release date="2023-11-24" version="1.0.6.4"/>
+    <release date="2023-11-25" version="1.0.6.5"/>
   </releases>
   <update_contact>rankyn@proton.me</update_contact>
-  <launchable type="desktop-id">dev.rankynbass.xivlauncher.desktop</launchable>
+  <launchable type="desktop-id">dev.rankyn.xivlauncher.desktop</launchable>
   <project_group>goatcorp</project_group>
   <developer_name>XIVLauncher Contributors</developer_name>
   <content_rating type="oars-1.1" />

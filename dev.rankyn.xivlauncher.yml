@@ -20,9 +20,8 @@ finish-args:
   - --socket=x11
   - --socket=wayland
   - --share=network
-  - --filesystem=~/.xlcore
+  - --filesystem=home
   - --filesystem=~/.var/app/com.valvesoftware.Steam
-  - --filesystem=xdg-data/Steam
   - --socket=pulseaudio
   - --talk-name=org.freedesktop.secrets
   - --system-talk-name=org.freedesktop.UDisks2

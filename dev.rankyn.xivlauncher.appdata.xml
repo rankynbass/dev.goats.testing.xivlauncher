@@ -25,7 +25,7 @@
     </screenshot>
   </screenshots>
   <releases>
-    <release date="2024-02-11" version="1.0.7.2"/>
+    <release date="2024-03-14" version="1.0.7.3"/>
   </releases>
   <update_contact>rankyn@proton.me</update_contact>
   <launchable type="desktop-id">dev.rankyn.xivlauncher.desktop</launchable>

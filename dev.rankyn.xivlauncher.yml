@@ -78,7 +78,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/rankynbass/XIVLauncher.Core.git
-        commit: febfdac9328fe06c92d0d25492b9df521868d35a
+        commit: 3f24373fb6b26b841c1c487a94ac61feb71dd46d
       - type: file
         path: dev.rankyn.xivlauncher.appdata.xml
       - nuget-dependencies.json

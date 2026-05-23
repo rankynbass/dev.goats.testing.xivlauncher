@@ -20,6 +20,8 @@ finish-args:
   - --filesystem=/media
   - --filesystem=/run/media
   - --filesystem=/mnt
+  # Useful for users who are migrating from or to native versions of the launcher
+  - --filesystem=xdg-data/dev.goats.xivlauncher:create
   # Discord RPC
   - --filesystem=xdg-run/app/com.discordapp.Discord:create
   - --filesystem=xdg-run/app/com.discordapp.DiscordCanary:create
